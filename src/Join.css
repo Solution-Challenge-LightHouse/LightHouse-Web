@@ -1,0 +1,24 @@
+.JoinForm {
+    width: 80%;
+    margin: 0 auto;
+}
+
+.WritingJ {
+    font-size: 25px;
+    font-weight: bold;
+    padding: 10px 0;
+}
+
+.JoinInput {
+    /* width: 80%; */
+    height: 30px;
+}
+
+.JoinBtn {
+    width: 10%;
+    display: flex;
+    margin: 0 auto;
+    justify-content: center;
+    font-size: 17px;
+    padding: 10px 0;
+}
