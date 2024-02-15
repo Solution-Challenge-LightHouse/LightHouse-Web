@@ -46,7 +46,7 @@ const Join: React.FC = () => {
       });
 
       alert('회원가입이 완료되었습니다. 로그인해주세요.');
-      navigate('/Login'); // signup 성공 후 로그인 페이지로 이동
+      // navigate('/Login'); // signup 성공 후 로그인 페이지로 이동
     } catch (error) {
       console.error(error);
     }
