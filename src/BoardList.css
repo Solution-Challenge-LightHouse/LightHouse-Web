@@ -1,0 +1,25 @@
+* {
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    text-decoration: none;
+}
+
+.background {
+    display: flex;
+}
+
+.boardBtn {
+    width: 20%;
+}
+
+.writeBtn {
+    width: 50%;
+    padding: 10px;
+    margin: 0 auto;
+    margin-top: 8%;
+    display: flex;
+    justify-content: center;
+    background-color: #AD9AEE;
+    border: none;
+}

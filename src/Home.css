@@ -1,0 +1,108 @@
+* {
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    text-decoration: none;
+}
+
+.home {
+    display: flex;
+}
+
+.leftNav {
+    width: 15%;
+    text-align: center;
+}
+
+.Nav {
+    padding: 10px 0;
+    display: block;
+    font-weight: bold;
+}
+
+#board1 {
+    margin: 20px 0;
+    font-weight: bold;
+    font-size: 20px;
+}
+#board2 {
+    margin-top: 30px;
+}
+
+.middleList {
+    width: 60%;
+    height: 500px;
+    padding: 20px;
+    border-left: 1px solid #dcdcdc;
+}
+
+.boardList {
+    margin-top: 3%;
+    border: 1px solid #B4B4FF;
+}
+.boardTitle {
+    display: flex;
+    text-align: center;
+    padding: 2% 0;
+}
+.boardContent {
+    display: flex;
+    text-align: center;
+    border: 1px solid #B4B4FF;
+    padding: 3% 0;
+}
+
+.rightNav {
+    width: 20%;
+    padding: 20px;
+    border-left: 1px solid #dcdcdc;
+}
+.question {
+    display: block;
+    margin: 30px 0;
+}
+#grade {
+    font-weight: bold;
+    font-size: 25px;
+}
+
+.level {
+    display: flex; 
+    text-align: center;
+    padding-top: 15px;
+}
+
+.a {
+    background-color: #A5D8FA;
+    width: 15%;
+    margin: 0 auto;
+    padding-top: 20px;
+}
+
+.b {
+    background-color: #B4C3FF;
+    width: 15%;
+    margin: 0 auto;
+    padding-top: 20px;
+}
+
+.c {
+    background-color: #B4B4FF;
+    width: 15%;
+    margin: 0 auto;
+    padding-top: 20px;
+}
+
+.d {
+    background-color: #D5C2EE;
+    width: 15%;
+    margin: 0 auto;
+    padding-top: 20px;
+}
+
+.e {
+    background-color: 	#FFC3FA;
+    width: 15%;
+    margin: 0 auto;
+    padding-top: 20px;
+}
