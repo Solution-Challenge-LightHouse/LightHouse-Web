@@ -6,14 +6,14 @@ interface Submission {
   email: string;
   password: string;
   authority: 'ROLE_STUDENT' | 'ROLE_TEACHER';
-  name?: string;
-  age?: number;
-  nation?: string;
-  school?: string;
+  name: string;
+  age: number;
+  nation: string;
+  school: string;
 }
 
 const Join: React.FC = () => {
-  const [user, setUser] = useState<Submission>({ email: '', password: '', authority: 'ROLE_STUDENT' });
+  const [user, setUser] = useState<Submission>({ email: '', password: '', authority: 'ROLE_STUDENT', name: '', age: 0, nation: '', school: '' });
   // const navigate = useNavigate(); // useNavigate hook 추가
 
   const handleInputChange = (event: React.ChangeEvent<HTMLInputElement>) => {
@@ -69,35 +69,35 @@ const Join: React.FC = () => {
         placeholder="Password"
       />
       <select name="role" value={user.authority} onChange={handleRoleChange}>
-        <option value="">Select role</option>
+        {/* <option value="">Select role</option> */}
         <option value="student">Student</option>
         <option value="teacher">Teacher</option>
       </select>
       <input
         type="text"
         name="name"
-        value={user.name || ''}
+        value={user.name}
         onChange={handleInputChange}
         placeholder="Name"
       />
       <input
         type="number"
         name="age"
-        value={user.age || ''}
+        value={user.age}
         onChange={handleInputChange}
         placeholder="Age"
       />
       <input
         type="text"
         name="nation"
-        value={user.nation || ''}
+        value={user.nation}
         onChange={handleInputChange}
         placeholder="Nation"
       />
       <input
         type="text"
         name="school"
-        value={user.school || ''}
+        value={user.school}
         onChange={handleInputChange}
         placeholder="School"
       />
