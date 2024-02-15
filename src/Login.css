@@ -1,20 +1,20 @@
-.JoinForm {
+.LoginForm {
     width: 80%;
     margin: 0 auto;
 }
 
-.WritingJ {
+.WritingL {
     font-size: 25px;
     font-weight: bold;
     padding: 10px 0;
 }
 
-.JoinInput {
-    /* width: 80%; */
+.LoginInput {
+    width: 80%;
     height: 30px;
 }
 
-.JoinBtn {
+.LoginBtn {
     width: 10%;
     display: flex;
     margin: 0 auto;

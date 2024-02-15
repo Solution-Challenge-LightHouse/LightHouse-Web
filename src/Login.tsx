@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
+import './Login.css'
 
 interface User {
     email: string;
@@ -34,24 +35,32 @@ const Login: React.FC = () => {
 
     return (
         <>
-            <form onSubmit={handleSubmit}>
-                <input
-                    type="email"
-                    name="email"
-                    value={user.email}
-                    onChange={handleInputChange}
-                    placeholder="Email"
-                />
-                <input
-                    type="password"
-                    name="password"
-                    value={user.password}
-                    onChange={handleInputChange}
-                    placeholder="Password"
-                />
-                <button type="submit">Login</button>
+            <form onSubmit={handleSubmit} className='LoginForm'>
+                <div className='WritingL'>
+                    <label className='LoginName'>Email: </label> &nbsp;&nbsp;
+                    <input
+                        type="email"
+                        name="email"
+                        value={user.email}
+                        onChange={handleInputChange}
+                        placeholder="Email"
+                        className='LoginInput'
+                    />
+                </div>
+                <div className='WritingL'>
+                    <label className='LoginName'>Password: </label> &nbsp;&nbsp;
+                    <input
+                        type="password"
+                        name="password"
+                        value={user.password}
+                        onChange={handleInputChange}
+                        placeholder="Password"
+                        className='LoginInput'
+                    />
+                </div>
+                <button type="submit" className='LoginBtn'>Login</button>
             </form>
-            <button onClick={() => navigate('/Join')}>회원가입 페이지로 이동</button>
+            <button onClick={() => navigate('/Join')} className='LoginBtn'>Join</button>
         </>
     );
 };
