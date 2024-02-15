@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import axios from 'axios';
-import { useNavigate } from 'react-router-dom'; // useNavigate import
+// import { useNavigate } from 'react-router-dom'; // useNavigate import
 
 interface Submission {
   email: string;
@@ -14,7 +14,7 @@ interface Submission {
 
 const Join: React.FC = () => {
   const [user, setUser] = useState<Submission>({ email: '', password: '', authority: 'ROLE_STUDENT' });
-  const navigate = useNavigate(); // useNavigate hook 추가
+  // const navigate = useNavigate(); // useNavigate hook 추가
 
   const handleInputChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     setUser({
