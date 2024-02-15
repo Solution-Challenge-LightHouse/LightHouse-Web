@@ -9,6 +9,7 @@ import Join from './Join.tsx'
 import BoardWrite from './BoardWrite.tsx'
 import BoardDetail from './BoardDetail.tsx'
 import Home from './Home.tsx'
+import Grade from './Grade.tsx'
 
 function App() {
 
@@ -23,7 +24,7 @@ function App() {
         <Route path='/Join' element={<Join />} />
         <Route path='/BoardDetail' element={<BoardDetail />} />
         <Route path='/BoardWrite' element={<BoardWrite />} />
-        {/* <Route path='/' element={< />} /> */}
+        <Route path='/Grade' element={<Grade />} />
       </Routes>
   )
 }

@@ -20,7 +20,7 @@ const Header: FC = () => {
                 </div>
                 <div className='title_nav'>
                     <Link to='/BoardList' className="nav">게시판</Link>
-                    <Link to='/Question' className="nav">문제</Link>
+                    <Link to='/Grade' className="nav">문제</Link>
                     <Link to='/Rank' className="nav">랭킹</Link>
                     <Link to='/User' className="nav">내 페이지</Link>
                 </div>
