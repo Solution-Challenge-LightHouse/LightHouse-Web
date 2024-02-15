@@ -41,15 +41,15 @@ const BoardDetail: React.FC = () => {
                         Authorization: `Bearer ${token}`,
                     },
                 };
-                const response = await axios.get(`http://localhost:8080/posts/find/${id}`, config);
+                const response = await axios.get(`http://52.79.242.2:8080/posts/find/${id}`, config);
                 setData(response.data);
 
                 // 댓글 불러오기
-                const commentResponse = await axios.get(`http://localhost:8080/comments/find/${id}`, config);
+                const commentResponse = await axios.get(`http://52.79.242.2:8080/comments/find/${id}`, config);
                 sestCommentShow(commentResponse.data);
 
                 // // 현재 사용자의 userName을 얻어오는 API 요청 추가
-                // const userResponse = await axios.get('http://localhost:8080/users/my/info', config);
+                // const userResponse = await axios.get('http://52.79.242.2:8080/users/my/info', config);
                 // setCurrentUser(userResponse.data);
 
                 // // userName 확인
@@ -88,7 +88,7 @@ const BoardDetail: React.FC = () => {
     //                 Authorization: `Bearer ${token}`,
     //             },
     //         };
-    //         const response = await axios.delete(`http://localhost:8080/posts/delete/${id}`, config);
+    //         const response = await axios.delete(`http://52.79.242.2:8080/posts/delete/${id}`, config);
     //         console.log(response);
     //         navigate('/list');
     //     } catch (error) {

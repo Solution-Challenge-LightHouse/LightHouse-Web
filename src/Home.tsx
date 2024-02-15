@@ -30,12 +30,12 @@ const Home: React.FC = () => {
                 };
 
                 // 서버에 사용자 정보 달라고 get 요청 보내기
-                const response = await axios.get('http://localhost:8080/posts/find/list/all', config);
+                const response = await axios.get('http://52.79.242.2:8080/posts/find/list/all', config);
 
                 setData(response.data);  // 요청 완료시 reponse변수에 서버에서 받은 사용자 정보가 저장될 것
             } catch (error) { // get 실패시 console 메시지 출력
                 console.error('Error fetching data:', error);
-                // navigate('/')
+                // navigate('/Home')
             }
         };
 

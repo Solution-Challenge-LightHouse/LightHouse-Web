@@ -10,7 +10,7 @@ const BoardWrite: React.FC = () => {
 
     const postData = async () => {
         const token = localStorage.getItem('token');
-        axios.post('http://localhost:8080/posts/save', { title, content }, {
+        axios.post('http://52.79.242.2:8080/posts/save', { title, content }, {
             headers: {
                 'Authorization': `Bearer ${token}`
             }
