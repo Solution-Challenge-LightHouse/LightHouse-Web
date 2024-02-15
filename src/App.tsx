@@ -10,6 +10,8 @@ import BoardWrite from './BoardWrite.tsx'
 import BoardDetail from './BoardDetail.tsx'
 import Home from './Home.tsx'
 import Grade from './Grade.tsx'
+import QuestionWrite from './QuestionWrite.tsx'
+import Answer from './Answer.tsx'
 
 function App() {
 
@@ -25,6 +27,8 @@ function App() {
         <Route path='/BoardDetail' element={<BoardDetail />} />
         <Route path='/BoardWrite' element={<BoardWrite />} />
         <Route path='/Grade' element={<Grade />} />
+        <Route path='/QuestionWrite' element={<QuestionWrite />} />
+        <Route path='/Answer' element={<Answer />} />
       </Routes>
   )
 }
