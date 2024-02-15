@@ -7,13 +7,13 @@ interface Submission {
   password: string;
   authority: 'ROLE_STUDENT' | 'ROLE_TEACHER';
   name: string;
-  age: number;
+  age: string;
   nation: string;
   school: string;
 }
 
 const Join: React.FC = () => {
-  const [user, setUser] = useState<Submission>({ email: '', password: '', authority: 'ROLE_STUDENT', name: '', age: 0, nation: '', school: '' });
+  const [user, setUser] = useState<Submission>({ email: '', password: '', authority: 'ROLE_STUDENT', name: '', age: '', nation: '', school: '' });
   // const navigate = useNavigate(); // useNavigate hook 추가
 
   const handleInputChange = (event: React.ChangeEvent<HTMLInputElement>) => {
