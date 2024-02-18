@@ -16,7 +16,7 @@ const QuestionWrite: React.FC = () => {
     const navigate = useNavigate();
 
     const postQData = async () => {
-        axios.post('http://52.79.242.2:8080/examples/save', { title, content, multipleChoice, imgPath, correct, score, category, grade }, {
+        axios.post('https://lighthouse1.site/examples/save', { title, content, multipleChoice, imgPath, correct, score, category, grade }, {
             headers: {
                 'Authorization': `Bearer ${token}`
             }

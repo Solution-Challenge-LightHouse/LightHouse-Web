@@ -36,11 +36,11 @@ const BoardList: React.FC = () => {
         };
 
         // 서버에 사용자 정보 달라고 get 요청 보내기
-        const response = await axios.get('http://52.79.242.2:8080/posts/find/list/all', config);
+        const response = await axios.get('https://lighthouse1.site/posts/find/list/all', config);
         setData(response.data);  // 요청 완료시 reponse변수에 서버에서 받은 사용자 정보가 저장될 것
 
         // 현재 사용자 정보 가져오기
-        // const userResponse = await axios.get('http://52.79.242.2:8080/users/my/info', config);
+        // const userResponse = await axios.get('https://lighthouse1.site/users/my/info', config);
         // setCurrentUser(userResponse.data);
 
       } catch (error) { // get 실패시 console 메시지 출력
@@ -64,7 +64,7 @@ const BoardList: React.FC = () => {
   //         Authorization: `Bearer ${token}`,
   //       },
   //     };
-  //     const deleteResponse = await axios.delete(`http://52.79.242.2:8080/posts/delete/${id}`, config);
+  //     const deleteResponse = await axios.delete(`https://lighthouse1.site/posts/delete/${id}`, config);
   //     console.log(deleteResponse);
   //     navigate('/list');
   //   } catch (error) {

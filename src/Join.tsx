@@ -36,7 +36,7 @@ const Join: React.FC = () => {
 
     try {
       // First step of signup
-      await axios.post('http://52.79.242.2:8080/auth/signup', {
+      await axios.post('https://lighthouse1.site/auth/signup', {
         email: user.email,
         password: user.password,
         authority: user.authority,

@@ -23,7 +23,7 @@ const Login: React.FC = () => {
         event.preventDefault();
 
         try {
-            const response = await axios.post('http://52.79.242.2:8080/auth/login', user);
+            const response = await axios.post('https://lighthouse1.site/auth/login', user);
             const token = response.data.token;
 
             // save the token into local storage

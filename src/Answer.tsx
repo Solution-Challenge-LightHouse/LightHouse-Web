@@ -9,7 +9,7 @@ const Answer = () => {
     const navigate = useNavigate();
 
     const writeComment = async () => {
-        axios.post(`http://52.79.242.2:8080/comments/save/${id}`, { comment }, {
+        axios.post(`https://lighthouse1.site/comments/save/${id}`, { comment }, {
             headers: {
                 'Authorization': `Bearer ${token}`
             }
