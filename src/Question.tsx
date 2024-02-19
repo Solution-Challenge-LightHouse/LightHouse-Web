@@ -45,19 +45,45 @@ const Question: React.FC = () => {
         return <div>Loading...</div>;
     }
 
+    const QuestionWrite = () => {
+        navigate('/QuestionWrite');
+    }
+
     return (
+        <>
         <div>
-            {quest.map((data: QuestInfo) => (
-                <Link to={`/get/${data.id}/${data.category}`}>
-                    <p>{data.id}</p>
-                    <p>{data.title}</p>
-                    <p>{data.content}</p>
-                    <p>{data.multipleChoice}</p>
-                    <p>{data.imgPath}</p>
-                    <p>{data.category}</p>
-                </Link>
-            ))}
+            <h1>전체 문제</h1>
+            <div className="questionList">
+                <table>
+                    <thead>
+                        <tr className="boardTitle">
+                            <th>No.</th>
+                            <th>Title</th>
+                            <th>Content</th>
+                            <th>MultipleChoice</th>
+                            <th>Img</th>
+                            <th>Category</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {quest.map((data: QuestInfo) => (
+                            <Link to={`/get/${data.id}/${data.category}`}>
+                                <td>{data.id}</td>
+                                <td>{data.title}</td>
+                                <td>{data.content}</td>
+                                <td>{data.multipleChoice}</td>
+                                <td>{data.imgPath}</td>
+                                <td>{data.category}</td>
+                            </Link>
+                        ))}
+                    </tbody>
+                </table>
+            </div>
         </div>
+        <div className='boardBtn'>
+        <button onClick={QuestionWrite} className='writeBtn'>글 작성</button>
+        </div>
+        </>
     )
 }
 

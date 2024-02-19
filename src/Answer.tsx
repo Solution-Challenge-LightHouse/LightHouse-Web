@@ -25,7 +25,7 @@ const Answer = () => {
 
     return (
         <div>
-            제목:
+            Answer:
             <input type="text" value={comment} onChange={e => setComment(e.target.value)} />
 
             <button onClick={writeComment}>저장</button>
