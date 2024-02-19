@@ -25,7 +25,7 @@ const Login: React.FC = () => {
         try {
             const response = await axios.post('https://lighthouse1.site/auth/login', user);
             const accesstoken = response.data.accesstoken;
-            console.log(response.data.accesstoken)
+            console.log(accesstoken)
 
             // save the token into local storage
             localStorage.setItem('token', accesstoken);
