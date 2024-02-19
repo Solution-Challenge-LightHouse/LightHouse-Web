@@ -7,8 +7,12 @@ interface QuestInfo {
     title: string;
     content: string;
     multipleChoice: string;
-    imgPath: string;
+    score: number;
+    grade: string;
     category: string;
+    correct: string;
+    correctPercentage: number;
+    imgPath: string;
 }
 
 const Question: React.FC = () => {

@@ -12,8 +12,22 @@ interface BoardInfo {
     creatAt: string;
 }
 
+// interface QuestInfo {
+//     id: string;
+//     title: string;
+//     content: string;
+//     multipleChoice: string;
+//     score: number;
+//     grade: string;
+//     category: string;
+//     correct: string;
+//     correctPercentage: number;
+//     imgPath: string;
+// }
+
 const Home: React.FC = () => {
     const [data, setData] = useState<BoardInfo[]>([]);
+    // const [quest, setQuest] = useState<QuestInfo[]>([]);
     const navigate = useNavigate();
 
     useEffect(() => {
@@ -32,7 +46,9 @@ const Home: React.FC = () => {
                 // 서버에 사용자 정보 달라고 get 요청 보내기
                 const response = await axios.get('https://lighthouse1.site/posts/find/list/all', config);
 
-                setData(response.data);  // 요청 완료시 reponse변수에 서버에서 받은 사용자 정보가 저장될 것
+                setData(response.data);
+                // setQuest(response.data);  // 요청 완료시 reponse변수에 서버에서 받은 사용자 정보가 저장될 것
+                
             } catch (error) { // get 실패시 console 메시지 출력
                 console.error('Error fetching data:', error);
                 // navigate('/Home')
@@ -73,6 +89,7 @@ const Home: React.FC = () => {
                                     <Link to={`/posts/find/${data.id}`} className="boardContent">
                                         <td>{data.id}</td>
                                         <td>{data.title}</td>
+                                        <td>{data.content}</td>
                                         <td>Lv.{data.userLevel}&nbsp;{data.userName}</td>
                                         <td>{data.creatAt}</td>
                                     </Link>
@@ -85,7 +102,7 @@ const Home: React.FC = () => {
                     <div id="grade">문제 바로가기</div>
                     <div>
                         <div>
-                            <Link to='/grade1' className="question">
+                            <Link to={`/examples/find`} className="question">
                                 1학년 문제 &nbsp; {'>'}
                             </Link>
                             <div className='level'>
