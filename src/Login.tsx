@@ -28,6 +28,9 @@ const Login: React.FC = () => {
 
             // save the token into local storage
             localStorage.setItem('token', token);
+
+            alert('로그인 되었습니다.');
+            navigate('/');
         } catch (error) {
             console.error(error);
         }
