@@ -28,6 +28,7 @@ const Login: React.FC = () => {
 
             // save the token into local storage
             localStorage.setItem('token', token);
+            console.log(localStorage.getItem('token'));
 
             alert('로그인 되었습니다.');
             navigate('/');
