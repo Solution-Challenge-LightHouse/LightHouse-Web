@@ -13,7 +13,7 @@ const Grade = () => {
                 </div>
                 <div className='Level'>
                     <Link to='/UploadQ' className="A">수와 연산</Link>
-                    <Link to='/Q' className="B">문자와 식</Link>
+                    <Link to='/Question' className="B">문자와 식</Link>
                     <Link to='/' className="C">함수</Link>
                     <Link to='/' className="D">기하</Link>
                     <Link to='/' className="E">확률과 통계</Link>
