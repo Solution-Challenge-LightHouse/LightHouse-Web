@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import axios from 'axios';
 import './Join.css'
-// import { useNavigate } from 'react-router-dom'; // useNavigate import
+import { useNavigate } from 'react-router-dom'; // useNavigate import
 
 interface Submission {
   email: string;
@@ -15,7 +15,7 @@ interface Submission {
 
 const Join: React.FC = () => {
   const [user, setUser] = useState<Submission>({ email: '', password: '', authority: 'ROLE_STUDENT', name: '', age: '', nation: '', school: '' });
-  // const navigate = useNavigate(); // useNavigate hook 추가
+  const navigate = useNavigate(); // useNavigate hook 추가
 
   const handleInputChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     setUser({
@@ -47,7 +47,7 @@ const Join: React.FC = () => {
       });
 
       alert('회원가입이 완료되었습니다. 로그인해주세요.');
-      // navigate('/Login'); // signup 성공 후 로그인 페이지로 이동
+      navigate('/Login'); // signup 성공 후 로그인 페이지로 이동
     } catch (error) {
       console.error(error);
     }
