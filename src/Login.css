@@ -1,23 +1,44 @@
 .LoginForm {
     width: 80%;
     margin: 0 auto;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
 }
 
 .WritingL {
     font-size: 25px;
     font-weight: bold;
-    padding: 10px 0;
+    display: flex;
+    justify-content: center;
+}
+
+.LoginLeft {
+    width: 15%;
+    margin-top: 1.5%;
+}
+
+.LoginName {
+    display: flex;
+}
+
+.LoginRight {
+    width: 60%;
 }
 
 .LoginInput {
-    width: 80%;
-    height: 30px;
+    height: 40px;
+    display: flex;
+    margin: 3% 0;
+    font-size: 17px;
 }
 
 .LoginBtn {
     width: 10%;
     display: flex;
     margin: 0 auto;
+    margin-top: 15px;
     justify-content: center;
     font-size: 17px;
 }

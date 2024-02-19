@@ -35,32 +35,36 @@ const Login: React.FC = () => {
 
     return (
         <>
-            <form onSubmit={handleSubmit} className='LoginForm'>
-                <div className='WritingL'>
-                    <label className='LoginName'>Email: </label> &nbsp;&nbsp;
-                    <input
-                        type="email"
-                        name="email"
-                        value={user.email}
-                        onChange={handleInputChange}
-                        placeholder="Email"
-                        className='LoginInput'
-                    />
-                </div>
-                <div className='WritingL'>
-                    <label className='LoginName'>Password: </label> &nbsp;&nbsp;
-                    <input
-                        type="password"
-                        name="password"
-                        value={user.password}
-                        onChange={handleInputChange}
-                        placeholder="Password"
-                        className='LoginInput'
-                    />
-                </div>
-                <button type="submit" className='LoginBtn'>Login</button>
-            </form>
-            <button onClick={() => navigate('/Join')} className='LoginBtn'>Join</button>
+            <div className='LoginForm'>
+                <form onSubmit={handleSubmit}>
+                    <div className='WritingL'>
+                        <div className='LoginLeft'>
+                            <label className='LoginName'>Password: </label> &nbsp;&nbsp;
+                            <label className='LoginName'>Email: </label> &nbsp;&nbsp;
+                        </div>
+                        <div className='LoginRight'>
+                            <input
+                                type="email"
+                                name="email"
+                                value={user.email}
+                                onChange={handleInputChange}
+                                placeholder="Email"
+                                className='LoginInput'
+                            />
+                            <input
+                                type="password"
+                                name="password"
+                                value={user.password}
+                                onChange={handleInputChange}
+                                placeholder="Password"
+                                className='LoginInput'
+                            />
+                        </div>
+                    </div>
+                    <button type="submit" className='LoginBtn'>Login</button>
+                </form>
+                <button onClick={() => navigate('/Join')} className='LoginBtn'>Join</button>
+            </div>
         </>
     );
 };

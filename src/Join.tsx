@@ -56,77 +56,70 @@ const Join: React.FC = () => {
   return (
     <form onSubmit={handleSubmit} className='JoinForm'>
       <div className='WritingJ'>
-        <label className='JoinName'>Email: </label> &nbsp;&nbsp;
-        <input
-          type="email"
-          name="email"
-          value={user.email}
-          onChange={handleInputChange}
-          placeholder="Email"
-          className='JoinInput'
-        />
-      </div>
-      <div className='WritingJ'>
-        <label className='JoinName'>Password: </label> &nbsp;&nbsp;
-        <input
-          type="password"
-          name="password"
-          value={user.password}
-          onChange={handleInputChange}
-          placeholder="Password"
-          className='JoinInput'
-        />
-      </div>
-      <div className='WritingJ'>
-        <label className='JoinName'>Role: </label> &nbsp;&nbsp;
-        <select name="role" value={user.authority} onChange={handleRoleChange} className='JoinInput'>
-          {/* <option value="">Select role</option> */}
-          <option value="student">Student</option>
-          <option value="teacher">Teacher</option>
-        </select>
-      </div>
-      <div className='WritingJ'>
-        <label className='JoinName'>Name: </label> &nbsp;&nbsp;
-        <input
-          type="text"
-          name="name"
-          value={user.name}
-          onChange={handleInputChange}
-          placeholder="Name"
-          className='JoinInput'
-        /></div>
-      <div className='WritingJ'>
-        <label className='JoinName'>Age: </label> &nbsp;&nbsp;
-        <input
-          type="number"
-          name="age"
-          value={user.age}
-          onChange={handleInputChange}
-          placeholder="Age"
-          className='JoinInput'
-        />
-      </div>
-      <div className='WritingJ'>
-        <label className='JoinName'>Nation: </label> &nbsp;&nbsp;
-        <input
-          type="text"
-          name="nation"
-          value={user.nation}
-          onChange={handleInputChange}
-          placeholder="Nation"
-          className='JoinInput'
-        />
-      </div>
-      <div className='WritingJ'>
-        <label className='JoinName'>School: </label> &nbsp;&nbsp;
-        <input
-          type="text"
-          name="school"
-          value={user.school}
-          onChange={handleInputChange}
-          placeholder="School"
-          className='JoinInput'
-        />
+        <div className='JoinLeft'>
+          <label className='JoinName'>Email: </label> &nbsp;&nbsp;
+          <label className='JoinName'>Password: </label> &nbsp;&nbsp;
+          <label className='JoinName'>Role: </label> &nbsp;&nbsp;
+          <label className='JoinName'>Name: </label> &nbsp;&nbsp;
+          <label className='JoinName'>Age: </label> &nbsp;&nbsp;
+          <label className='JoinName'>Nation: </label> &nbsp;&nbsp;
+          <label className='JoinName'>School: </label> &nbsp;&nbsp;
+        </div>
+        <div className='JoinRight'>
+          <input
+            type="email"
+            name="email"
+            value={user.email}
+            onChange={handleInputChange}
+            placeholder="Email"
+            className='JoinInput'
+          />
+          <input
+            type="password"
+            name="password"
+            value={user.password}
+            onChange={handleInputChange}
+            placeholder="Password"
+            className='JoinInput'
+          />
+          <select name="role" value={user.authority} onChange={handleRoleChange} className='JoinInput'>
+            {/* <option value="">Select role</option> */}
+            <option value="student">Student</option>
+            <option value="teacher">Teacher</option>
+          </select>
+          <input
+            type="text"
+            name="name"
+            value={user.name}
+            onChange={handleInputChange}
+            placeholder="Name"
+            className='JoinInput'
+          />
+          <input
+            type="number"
+            name="age"
+            value={user.age}
+            onChange={handleInputChange}
+            placeholder="Age"
+            className='JoinInput'
+          />
+          <input
+            type="text"
+            name="nation"
+            value={user.nation}
+            onChange={handleInputChange}
+            placeholder="Nation"
+            className='JoinInput'
+          />
+          <input
+            type="text"
+            name="school"
+            value={user.school}
+            onChange={handleInputChange}
+            placeholder="School"
+            className='JoinInput'
+          />
+        </div>
       </div>
       <button type="submit" className='JoinBtn'>Sign Up</button>
     </form>
