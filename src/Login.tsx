@@ -24,11 +24,11 @@ const Login: React.FC = () => {
 
         try {
             const response = await axios.post('https://lighthouse1.site/auth/login', user);
-            const token = response.data.token;
+            const accestoken = response.data.accesstoken;
             console.log(response.data)
 
             // save the token into local storage
-            localStorage.setItem('token', token);
+            localStorage.setItem('token', accestoken);
             // console.log(localStorage.getItem('token'));
 
             alert('로그인 되었습니다.');
