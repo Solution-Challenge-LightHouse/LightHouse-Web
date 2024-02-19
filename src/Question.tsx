@@ -51,9 +51,17 @@ const Question: React.FC = () => {
 
     return (
         <>
+        <div className="background">
+        <div className="leftNav">
+          <Link to='/Board' className="Nav" id="board1">전체 문제</Link>
+          <hr />
+          <Link to='/Board' className="Nav" id="board2">1학년 문제</Link><br />
+          <Link to='/Board' className="Nav">2학년 문제</Link><br />
+          <Link to='/Board' className="Nav">3학년 문제</Link>
+        </div>
         <div>
             <h1>전체 문제</h1>
-            <div className="questionList">
+            <div className="middleList">
                 <table>
                     <thead>
                         <tr className="boardTitle">
@@ -67,7 +75,7 @@ const Question: React.FC = () => {
                     </thead>
                     <tbody>
                         {quest.map((data: QuestInfo) => (
-                            <Link to={`/get/${data.id}/${data.category}`}>
+                            <Link to={`/get/${data.id}/${data.category}`} className="boardContent">
                                 <td>{data.id}</td>
                                 <td>{data.title}</td>
                                 <td>{data.content}</td>
@@ -82,6 +90,7 @@ const Question: React.FC = () => {
         </div>
         <div className='boardBtn'>
         <button onClick={QuestionWrite} className='writeBtn'>글 작성</button>
+        </div>
         </div>
         </>
     )
