@@ -80,7 +80,7 @@ const Question: React.FC = () => {
                                 <td>{data.title}</td>
                                 <td>{data.content}</td>
                                 <td>{data.multipleChoice}</td>
-                                <td>{data.imgPath}</td>
+                                <td><img src={data.imgPath} alt={data.imgPath} /></td>
                                 <td>{data.category}</td>
                             </Link>
                         ))}
