@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 import './BoardList.css';
-import { Link, useNavigate } from 'react-router-dom';
+import { Link, useNavigate, useParams } from 'react-router-dom';
 import axios from 'axios';
 
 interface BoardInfo {
@@ -20,6 +20,7 @@ const BoardList: React.FC = () => {
   const [data, setData] = useState<BoardInfo[]>([]);
   const [liked, setLiked] = useState(false); // 좋아요가 눌려 있는 상태를 저장하는 state
   const [likes, setLikes] = useState(0); // 좋아요 수를 저장하는 state
+  const { id } = useParams<{ id: string }>();
   const navigate = useNavigate();
   // const [currentUser, setCurrentUser] = useState<UserInfo | null>(null); // 현재 사용자의 userName을 저장할 state 추가
   // const { id } = useParams<{ id: string }>();
@@ -74,9 +75,28 @@ const BoardList: React.FC = () => {
   //   }
   // }
 
-  const handleLike = () => {
-    setLiked(!liked); // 좋아요 상태를 반전
-    setLikes(likes + (liked ? -1 : 1)); // 좋아요 상태에 따라 likes 값을 증가시키거나 감소시킴
+  // 좋아요 버튼 클릭시 동작할 함수 구현
+  const handleLike = async () => {
+    try {
+      const token = localStorage.getItem('token');
+      const config = {
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+      };
+
+      // 좋아요 상태를 반전
+      const newLiked = !liked;
+      setLiked(newLiked);
+
+      // 변경된 좋아요 상태를 서버에 전송
+      const response = await axios.post(`https://lighthouse1.site/posts/like/${id}`, { liked: newLiked }, config);
+
+      // 서버로부터 받아온 새로운 좋아요 수를 설정
+      setLikes(response.data.likes);
+    } catch (error) {
+      console.error('Error updating like status:', error);
+    }
   };
 
   if (!data) {

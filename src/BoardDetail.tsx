@@ -98,9 +98,28 @@ const BoardDetail: React.FC = () => {
     //     }
     // }
 
-    const handleLike = () => {
-        setLiked(!liked); // 좋아요 상태를 반전
-        setLikes(likes + (liked ? -1 : 1)); // 좋아요 상태에 따라 likes 값을 증가시키거나 감소시킴
+    // 좋아요 버튼 클릭시 동작할 함수 구현
+    const handleLike = async () => {
+        try {
+            const token = localStorage.getItem('token');
+            const config = {
+                headers: {
+                    Authorization: `Bearer ${token}`,
+                },
+            };
+
+            // 좋아요 상태를 반전
+            const newLiked = !liked;
+            setLiked(newLiked);
+
+            // 변경된 좋아요 상태를 서버에 전송
+            const response = await axios.post(`https://lighthouse1.site/posts/like/${id}`, { liked: newLiked }, config);
+
+            // 서버로부터 받아온 새로운 좋아요 수를 설정
+            setLikes(response.data.likes);
+        } catch (error) {
+            console.error('Error updating like status:', error);
+        }
     };
 
     if (!data) {
