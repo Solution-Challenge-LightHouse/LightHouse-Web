@@ -28,7 +28,7 @@ function App() {
         <Route path='/posts/find/:id' element={<BoardDetail />} />
         <Route path='/BoardWrite' element={<BoardWrite />} />
         <Route path='/Grade' element={<Grade />} />
-        <Route path='/get/:id/:category' element={<GradeDetail />} />
+        <Route path='/examples/find/:grade/:category' element={<GradeDetail />} />
         <Route path='/QuestionWrite' element={<QuestionWrite />} />
         <Route path='/Answer' element={<Answer />} />
       </Routes>

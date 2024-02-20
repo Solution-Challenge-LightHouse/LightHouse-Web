@@ -59,9 +59,9 @@ const Question: React.FC = () => {
         <div className="leftNav">
           <Link to='/Board' className="Nav" id="board1">전체 문제</Link>
           <hr />
-          <Link to={`/examples/find`} className="Nav" id="board2">1학년 문제</Link><br />
-          <Link to='/Board' className="Nav">2학년 문제</Link><br />
-          <Link to='/Board' className="Nav">3학년 문제</Link>
+          <Link to={`/examples/find/1`} className="Nav" id="board2">1학년 문제</Link><br />
+          <Link to={`/examples/find/2`} className="Nav">2학년 문제</Link><br />
+          <Link to={`/examples/find/3`} className="Nav">3학년 문제</Link>
         </div>
         <div>
             <h1>전체 문제</h1>
@@ -80,7 +80,7 @@ const Question: React.FC = () => {
                     </thead>
                     <tbody>
                         {quest.map((data: QuestInfo) => (
-                            <Link to={`/get/${data.grade}/${data.category}`} className="boardContent">
+                            <Link to={`/examples/find/${data.grade}/${data.category}`} className="boardContent">
                                 <td>{data.id}</td>
                                 <td>{data.title}</td>
                                 <td>{data.content}</td>
