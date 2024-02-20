@@ -55,49 +55,49 @@ const Question: React.FC = () => {
 
     return (
         <>
-        <div className="background">
-        <div className="leftNav">
-          <Link to='/Board' className="Nav" id="board1">전체 문제</Link>
-          <hr />
-          <Link to={`/examples/find/1`} className="Nav" id="board2">1학년 문제</Link><br />
-          <Link to={`/examples/find/2`} className="Nav">2학년 문제</Link><br />
-          <Link to={`/examples/find/3`} className="Nav">3학년 문제</Link>
-        </div>
-        <div>
-            <h1>전체 문제</h1>
-            <div className="middleList">
-                <table>
-                    <thead>
-                        <tr className="boardTitle">
-                            <th>No.</th>
-                            <th>Title</th>
-                            <th>Content</th>
-                            <th>MultipleChoice</th>
-                            <th>Img</th>
-                            <th>Category</th>
-                            <th>Grade</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        {quest.map((data: QuestInfo) => (
-                            <Link to={`/examples/${data.id}`} className="boardContent">
-                                <td>{data.id}</td>
-                                <td>{data.title}</td>
-                                <td>{data.content}</td>
-                                <td>{data.multipleChoice}</td>
-                                <td><img src={data.imgPath} alt={data.imgPath} /></td>
-                                <td>{data.category}</td>
-                                <td>{data.grade}</td>
-                            </Link>
-                        ))}
-                    </tbody>
-                </table>
+            <div className="background">
+                <div className="leftNav">
+                    <Link to='/Board' className="Nav" id="board1">전체 문제</Link>
+                    <hr />
+                    <Link to={`/examples/find/1`} className="Nav" id="board2">1학년 문제</Link><br />
+                    <Link to={`/examples/find/2`} className="Nav">2학년 문제</Link><br />
+                    <Link to={`/examples/find/3`} className="Nav">3학년 문제</Link>
+                </div>
+                <div>
+                    <h1>전체 문제</h1>
+                    <div className="middleList">
+                        <table>
+                            <thead>
+                                <tr className="boardTitle">
+                                    <th>No.</th>
+                                    <th>Title</th>
+                                    <th>Content</th>
+                                    <th>MultipleChoice</th>
+                                    <th>Img</th>
+                                    <th>Category</th>
+                                    <th>Grade</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                {quest.map((data: QuestInfo) => (
+                                    <tr key={data.id} className="boardContent">
+                                        <td>{data.id}</td>
+                                        <td>{data.title}</td>
+                                        <td>{data.content}</td>
+                                        <td>{data.multipleChoice}</td>
+                                        <td><img src={data.imgPath} alt={data.imgPath} /></td>
+                                        <td>{data.category}</td>
+                                        <td>{data.grade}</td>
+                                    </tr>
+                                ))}
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+                <div className='boardBtn'>
+                    <button onClick={QuestionWrite} className='writeBtn'>글 작성</button>
+                </div>
             </div>
-        </div>
-        <div className='boardBtn'>
-        <button onClick={QuestionWrite} className='writeBtn'>글 작성</button>
-        </div>
-        </div>
         </>
     )
 }
