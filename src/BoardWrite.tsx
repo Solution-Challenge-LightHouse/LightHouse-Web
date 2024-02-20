@@ -17,7 +17,7 @@ const BoardWrite: React.FC = () => {
         })
             .then(() => {
                 alert('저장되었습니다.');
-                navigate('/Board');
+                navigate('/BoardList');
             })
             .catch(error => {
                 console.error('Something went wrong', error);
