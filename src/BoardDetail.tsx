@@ -32,6 +32,7 @@ const BoardDetail: React.FC = () => {
     const [likes, setLikes] = useState(0); // 좋아요 수를 저장하는 state
     // const [currentUser, setCurrentUser] = useState<UserInfo | null>(null); // 현재 사용자의 userName을 저장할 state 추가
     const { id } = useParams<{ id: string }>();
+    const { postId } = useParams<{ postId: string }>();
     const navigate = useNavigate();
 
     useEffect(() => {
@@ -98,9 +99,27 @@ const BoardDetail: React.FC = () => {
     //     }
     // }
 
-    const handleLike = () => {
-        setLiked(!liked); // 좋아요 상태를 반전
-        setLikes(likes + (liked ? -1 : 1)); // 좋아요 상태에 따라 likes 값을 증가시키거나 감소시킴
+    const handleLike = async () => {
+        try {
+            const token = localStorage.getItem('token');
+            const config = {
+                headers: {
+                    Authorization: `Bearer ${token}`,
+                },
+            };
+    
+            // 좋아요 상태를 반전
+            const newLiked = !liked;
+            setLiked(newLiked);
+    
+            // 변경된 좋아요 상태를 서버에 전송
+            await axios.post(`https://lighthouse1.site/likes/${postId}`, {}, config);
+    
+            // 좋아요 상태에 따라 likes 값을 증가시키거나 감소시킴
+            setLikes(likes + (newLiked ? 1 : -1));
+        } catch (error) {
+            console.error('Error updating like status:', error);
+        }
     };
 
     if (!data) {
