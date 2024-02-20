@@ -75,6 +75,7 @@ const Question: React.FC = () => {
                             <th>MultipleChoice</th>
                             <th>Img</th>
                             <th>Category</th>
+                            <th>Grade</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -86,6 +87,7 @@ const Question: React.FC = () => {
                                 <td>{data.multipleChoice}</td>
                                 <td><img src={data.imgPath} alt={data.imgPath} /></td>
                                 <td>{data.category}</td>
+                                <td>{data.grade}</td>
                             </Link>
                         ))}
                     </tbody>
