@@ -13,6 +13,7 @@ import Grade from './Grade.tsx'
 import QuestionWrite from './QuestionWrite.tsx'
 import Answer from './Answer.tsx'
 import GradeDetail from './GradeDetail.tsx'
+import QuestionDeatil from './Question.tsx'
 
 function App() {
 
@@ -24,11 +25,12 @@ function App() {
         <Route path='/BoardList' element={<BoardList />} />
         <Route path='/Rank' element={<Rank />} />
         <Route path='/Question' element={<Question />} />
+        <Route path='/examples/find/:grade' element={<QuestionDeatil />} />
         <Route path='/Join' element={<Join />} />
         <Route path='/posts/find/:id' element={<BoardDetail />} />
         <Route path='/BoardWrite' element={<BoardWrite />} />
         <Route path='/Grade' element={<Grade />} />
-        <Route path='/examples/find/:grade/:category' element={<GradeDetail />} />
+        <Route path='/examples/find/:grade' element={<GradeDetail />} />
         <Route path='/QuestionWrite' element={<QuestionWrite />} />
         <Route path='/Answer' element={<Answer />} />
       </Routes>
