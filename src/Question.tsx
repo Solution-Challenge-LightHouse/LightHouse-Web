@@ -30,7 +30,7 @@ const Question: React.FC = () => {
                         Authorization: `Bearer ${token}`,
                     },
                 };
-                const response = await axios.get(`https://lighthouse1.site/examples/find/${id}`, config);
+                const response = await axios.get(`https://lighthouse1.site/examples/${id}`, config);
                 setQuest(response.data);
 
                 // 댓글 불러오기
