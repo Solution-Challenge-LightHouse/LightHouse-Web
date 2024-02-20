@@ -26,7 +26,7 @@ const Grade1: React.FC = () => {
                         Authorization: `Bearer ${token}`,
                     },
                 };
-                const response = await axios.get(`https://lighthouse1.site/examples/find/${grade}`, config);
+                const response = await axios.get(`https://lighthouse1.site/examples/find?${grade}`, config);
                 setData(response.data);
 
             } catch (error) {
