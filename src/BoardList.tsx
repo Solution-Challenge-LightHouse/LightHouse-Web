@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 import './BoardList.css';
-import { Link, useNavigate, useParams } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import axios from 'axios';
 
 interface BoardInfo {
