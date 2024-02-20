@@ -80,7 +80,7 @@ const Question: React.FC = () => {
                     </thead>
                     <tbody>
                         {quest.map((data: QuestInfo) => (
-                            <Link to={`/get/${data.id}/${data.category}`} className="boardContent">
+                            <Link to={`/get/${data.grade}/${data.category}`} className="boardContent">
                                 <td>{data.id}</td>
                                 <td>{data.title}</td>
                                 <td>{data.content}</td>
