@@ -32,6 +32,7 @@ const BoardDetail: React.FC = () => {
     const [likes, setLikes] = useState(0); // 좋아요 수를 저장하는 state
     // const [currentUser, setCurrentUser] = useState<UserInfo | null>(null); // 현재 사용자의 userName을 저장할 state 추가
     const { id } = useParams<{ id: string }>();
+    const { postId } = useParams<{ postId: string }>();
     const navigate = useNavigate();
 
     useEffect(() => {
@@ -113,7 +114,7 @@ const BoardDetail: React.FC = () => {
             setLiked(newLiked);
 
             // 변경된 좋아요 상태를 서버에 전송
-            const response = await axios.post(`https://lighthouse1.site/posts/like/${id}`, { liked: newLiked }, config);
+            const response = await axios.post(`https://lighthouse1.site/likes/${postId}`, { liked: newLiked }, config);
 
             // 서버로부터 받아온 새로운 좋아요 수를 설정
             setLikes(response.data.likes);
