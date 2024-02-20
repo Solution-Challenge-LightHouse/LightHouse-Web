@@ -1,19 +1,23 @@
 import { useEffect, useState } from "react";
-import { useParams, useNavigate } from "react-router-dom";
+import { useParams, useNavigate, Link } from "react-router-dom";
 import axios from "axios";
 import './BoardDetail.css';
 
-interface BoardInfo {
+interface QuestInfo {
     id: string;
-    userName: string;
-    userLevel: string;
     title: string;
     content: string;
-    creatAt: string;
+    multipleChoice: string;
+    score: number;
+    grade: string;
+    category: string;
+    correct: string;
+    correctPercentage: number;
+    imgPath: string;
 }
 
 const Grade1: React.FC = () => {
-    const [data, setData] = useState<BoardInfo | null>(null);
+    const [quest, setQuest] = useState<QuestInfo[]>([]);
     const { grade } = useParams<{ grade: string }>();
     const navigate = useNavigate();
 
@@ -27,7 +31,7 @@ const Grade1: React.FC = () => {
                     },
                 };
                 const response = await axios.get(`https://lighthouse1.site/examples/find?${grade}`, config);
-                setData(response.data);
+                setQuest(response.data);
 
             } catch (error) {
                 console.error('Error fetching data:', error);
@@ -38,32 +42,50 @@ const Grade1: React.FC = () => {
         fetchData();
     }, [navigate, grade]);
 
-    if (!data) {
+    if (!quest) {
         return <div>Loading...</div>;
     }
 
     return (
         <>
-            <table>
-                <thead>
-                    <tr className="boardTitle">
-                        <th>No.</th>
-                        <th>Title</th>
-                        <th>Content</th>
-                        <th>User</th>
-                        <th>Date</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr key={data.id} className="boardContent">
-                        <td>{data.id}</td>
-                        <td>{data.title}</td>
-                        <td>{data.content}</td>
-                        <td>Lv.{data.userLevel}&nbsp;{data.userName}</td>
-                        <td>{data.creatAt}</td>
-                    </tr>
-                </tbody>
-            </table>
+            <div className="background">
+                <div className="leftNav">
+                    <Link to='/Board' className="Nav" id="board1">전체 문제</Link>
+                    <hr />
+                    <Link to='/Board' className="Nav" id="board2">1학년 문제</Link><br />
+                    <Link to='/Board' className="Nav">2학년 문제</Link><br />
+                    <Link to='/Board' className="Nav">3학년 문제</Link>
+                </div>
+                <div>
+                    <h1>전체 문제</h1>
+                    <div className="middleList">
+                        <table>
+                            <thead>
+                                <tr className="boardTitle">
+                                    <th>No.</th>
+                                    <th>Title</th>
+                                    <th>Content</th>
+                                    <th>MultipleChoice</th>
+                                    <th>Img</th>
+                                    <th>Category</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                {quest.map((data: QuestInfo) => (
+                                    <>
+                                        <td>{data.id}</td>
+                                        <td>{data.title}</td>
+                                        <td>{data.content}</td>
+                                        <td>{data.multipleChoice}</td>
+                                        <td><img src={data.imgPath} alt={data.imgPath} /></td>
+                                        <td>{data.category}</td>
+                                    </>
+                                ))}
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
         </>
     );
 };
