@@ -20,7 +20,6 @@ const BoardList: React.FC = () => {
   const [data, setData] = useState<BoardInfo[]>([]);
   const [liked, setLiked] = useState(false); // 좋아요가 눌려 있는 상태를 저장하는 state
   const [likes, setLikes] = useState(0); // 좋아요 수를 저장하는 state
-  const { id } = useParams<{ id: string }>();
   const { postId } = useParams<{ postId: string }>();
   const navigate = useNavigate();
   // const [currentUser, setCurrentUser] = useState<UserInfo | null>(null); // 현재 사용자의 userName을 저장할 state 추가
