@@ -28,6 +28,8 @@ const BoardDetail: React.FC = () => {
     const [data, setData] = useState<BoardInfo | null>(null);
     const [commentShow, sestCommentShow] = useState<CommentInfo | null>(null);
     const [content, setContent] = useState('');
+    const [liked, setLiked] = useState(false); // 좋아요가 눌려 있는 상태를 저장하는 state
+    const [likes, setLikes] = useState(0); // 좋아요 수를 저장하는 state
     // const [currentUser, setCurrentUser] = useState<UserInfo | null>(null); // 현재 사용자의 userName을 저장할 state 추가
     const { id } = useParams<{ id: string }>();
     const navigate = useNavigate();
@@ -96,6 +98,11 @@ const BoardDetail: React.FC = () => {
     //     }
     // }
 
+    const handleLike = () => {
+        setLiked(!liked); // 좋아요 상태를 반전
+        setLikes(likes + (liked ? -1 : 1)); // 좋아요 상태에 따라 likes 값을 증가시키거나 감소시킴
+    };
+
     if (!data) {
         return <div>Loading...</div>;
     }
@@ -128,6 +135,11 @@ const BoardDetail: React.FC = () => {
                     <button onClick={deletePost}>Delete</button>
                 </div>
             )} */}
+            
+            <button onClick={handleLike}>
+                👍 {likes} {/* 좋아요 버튼. 좋아요 수를 표시 */}
+            </button>
+
             <div className="comment">
                 <p className="commentWrite">
                     <label>댓글: </label>

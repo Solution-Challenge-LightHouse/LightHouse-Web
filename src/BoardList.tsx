@@ -100,12 +100,12 @@ const BoardList: React.FC = () => {
               </thead>
               <tbody>
                 {data.map((data: BoardInfo) => (
-                  <Link to={`/posts/find/${data.id}`} className="boardContent">
+                  <tr key={data.id} className="boardContent">
                     <td>{data.id}</td>
-                    <td>{data.title}</td>
+                    <td><Link to={`/posts/find/${data.id}`}>{data.title}</Link></td>
                     <td>Lv.{data.userLevel}&nbsp;{data.userName}</td>
                     <td>{data.creatAt}</td>
-                  </Link>
+                  </tr>
                 ))}
               </tbody>
             </table>
