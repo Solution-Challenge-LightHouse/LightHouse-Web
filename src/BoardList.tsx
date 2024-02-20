@@ -18,6 +18,8 @@ interface BoardInfo {
 
 const BoardList: React.FC = () => {
   const [data, setData] = useState<BoardInfo[]>([]);
+  const [liked, setLiked] = useState(false); // 좋아요가 눌려 있는 상태를 저장하는 state
+  const [likes, setLikes] = useState(0); // 좋아요 수를 저장하는 state
   const navigate = useNavigate();
   // const [currentUser, setCurrentUser] = useState<UserInfo | null>(null); // 현재 사용자의 userName을 저장할 state 추가
   // const { id } = useParams<{ id: string }>();
@@ -72,6 +74,11 @@ const BoardList: React.FC = () => {
   //   }
   // }
 
+  const handleLike = () => {
+    setLiked(!liked); // 좋아요 상태를 반전
+    setLikes(likes + (liked ? -1 : 1)); // 좋아요 상태에 따라 likes 값을 증가시키거나 감소시킴
+  };
+
   if (!data) {
     return <div>Loading...</div>;
   }
@@ -96,6 +103,7 @@ const BoardList: React.FC = () => {
                   <th>Title</th>
                   <th>User</th>
                   <th>Date</th>
+                  <th>Like</th>
                 </tr>
               </thead>
               <tbody>
@@ -105,6 +113,11 @@ const BoardList: React.FC = () => {
                     <td><Link to={`/posts/find/${data.id}`}>{data.title}</Link></td>
                     <td>Lv.{data.userLevel}&nbsp;{data.userName}</td>
                     <td>{data.creatAt}</td>
+                    <td>
+                      <button onClick={handleLike}>
+                        👍 {likes} {/* 좋아요 버튼. 좋아요 수를 표시 */}
+                      </button>
+                    </td>
                   </tr>
                 ))}
               </tbody>

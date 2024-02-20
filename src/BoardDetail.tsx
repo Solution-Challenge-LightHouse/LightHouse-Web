@@ -16,18 +16,18 @@ interface BoardInfo {
 //     name: string;
 // }
 
-interface CommentInfo {
-    id: string;
-    userName: string;
-    userLevel: string;
-    content: string;
-    createAt: string;
-}
+// interface CommentInfo {
+//     id: string;
+//     userName: string;
+//     userLevel: string;
+//     content: string;
+//     createAt: string;
+// }
 
 const BoardDetail: React.FC = () => {
     const [data, setData] = useState<BoardInfo | null>(null);
-    const [commentShow, sestCommentShow] = useState<CommentInfo | null>(null);
-    const [content, setContent] = useState('');
+    // const [commentShow, sestCommentShow] = useState<CommentInfo | null>(null);
+    // const [content, setContent] = useState('');
     const [liked, setLiked] = useState(false); // 좋아요가 눌려 있는 상태를 저장하는 state
     const [likes, setLikes] = useState(0); // 좋아요 수를 저장하는 state
     // const [currentUser, setCurrentUser] = useState<UserInfo | null>(null); // 현재 사용자의 userName을 저장할 state 추가
@@ -47,8 +47,8 @@ const BoardDetail: React.FC = () => {
                 setData(response.data);
 
                 // 댓글 불러오기
-                const commentResponse = await axios.get(`https://lighthouse1.site/comments/find/${id}`, config);
-                sestCommentShow(commentResponse.data);
+                // const commentResponse = await axios.get(`https://lighthouse1.site/comments/find/${id}`, config);
+                // sestCommentShow(commentResponse.data);
 
                 // // 현재 사용자의 userName을 얻어오는 API 요청 추가
                 // const userResponse = await axios.get('https://lighthouse1.site/users/my/info', config);
@@ -66,21 +66,21 @@ const BoardDetail: React.FC = () => {
         fetchData();
     }, [navigate, id]);
 
-    const postCommentData = async () => {
-        const token = localStorage.getItem('token');
-        axios.post(`https://lighthouse1.site/comments/save/${id}`, { content }, {
-            headers: {
-                'Authorization': `Bearer ${token}`
-            }
-        })
-            .then(() => {
-                alert('저장되었습니다.');
-                navigate('/Board');
-            })
-            .catch(error => {
-                console.error('Something went wrong', error);
-            });
-    };
+    // const postCommentData = async () => {
+    //     const token = localStorage.getItem('token');
+    //     axios.post(`https://lighthouse1.site/comments/save/${id}`, { content }, {
+    //         headers: {
+    //             'Authorization': `Bearer ${token}`
+    //         }
+    //     })
+    //         .then(() => {
+    //             alert('저장되었습니다.');
+    //             navigate('/Board');
+    //         })
+    //         .catch(error => {
+    //             console.error('Something went wrong', error);
+    //         });
+    // };
 
     // const deletePost = async () => {
     //     try {
@@ -135,12 +135,12 @@ const BoardDetail: React.FC = () => {
                     <button onClick={deletePost}>Delete</button>
                 </div>
             )} */}
-            
+
             <button onClick={handleLike}>
                 👍 {likes} {/* 좋아요 버튼. 좋아요 수를 표시 */}
             </button>
 
-            <div className="comment">
+            {/* <div className="comment">
                 <p className="commentWrite">
                     <label>댓글: </label>
                     <input className="commentA" type="text" value={content} onChange={e => setContent(e.target.value)} />
@@ -153,7 +153,7 @@ const BoardDetail: React.FC = () => {
                     {commentShow?.userLevel}
                     {commentShow?.userName}
                 </div>
-            </div>
+            </div> */}
         </>
     );
 };
