@@ -15,7 +15,7 @@ interface QuestInfo {
     imgPath: string;
 }
 
-const Question: React.FC = () => {
+const GradeDetail: React.FC = () => {
     const [quest, setQuest] = useState<QuestInfo[]>([]);
     const navigate = useNavigate();
 
@@ -59,7 +59,7 @@ const Question: React.FC = () => {
         <div className="leftNav">
           <Link to='/Board' className="Nav" id="board1">전체 문제</Link>
           <hr />
-          <Link to={`/examples/find`} className="Nav" id="board2">1학년 문제</Link><br />
+          <Link to='/Board' className="Nav" id="board2">1학년 문제</Link><br />
           <Link to='/Board' className="Nav">2학년 문제</Link><br />
           <Link to='/Board' className="Nav">3학년 문제</Link>
         </div>
@@ -100,4 +100,4 @@ const Question: React.FC = () => {
     )
 }
 
-export default Question;
+export default GradeDetail;
