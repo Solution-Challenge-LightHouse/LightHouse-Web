@@ -1,6 +1,6 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
-import { Link, useNavigate } from "react-router-dom";
+import { Link, useNavigate, useParams } from "react-router-dom";
 
 interface QuestInfo {
     id: string;
@@ -17,33 +17,41 @@ interface QuestInfo {
 
 const Question: React.FC = () => {
     const [quest, setQuest] = useState<QuestInfo[]>([]);
+    const { id } = useParams<{ id: string }>();
     const navigate = useNavigate();
 
-    useEffect(() => {
-        const fetchQuestData = async () => {
-            try {
-                // localstorage에 저장했던 토큰 가져오기
-                const token = localStorage.getItem('token');
 
-                // 헤더에 토큰 추가
+    useEffect(() => {
+        const fetchData = async () => {
+            try {
+                const token = localStorage.getItem('token');
                 const config = {
                     headers: {
-                        Authorization: `Bearer ${token}`
-                    }
+                        Authorization: `Bearer ${token}`,
+                    },
                 };
+                const response = await axios.get(`https://lighthouse1.site/examples/find/${id}`, config);
+                setQuest(response.data);
 
-                // 서버에 사용자 정보 달라고 get 요청 보내기
-                const response = await axios.get(`https://lighthouse1.site/examples/all`, config);
-                setQuest(response.data);  // 요청 완료시 reponse변수에 서버에서 받은 사용자 정보가 저장될 것
+                // 댓글 불러오기
+                // const commentResponse = await axios.get(`https://lighthouse1.site/comments/find/${id}`, config);
+                // sestCommentShow(commentResponse.data);
 
-            } catch (error) { // get 실패시 console 메시지 출력
+                // // 현재 사용자의 userName을 얻어오는 API 요청 추가
+                // const userResponse = await axios.get('https://lighthouse1.site/users/my/info', config);
+                // setCurrentUser(userResponse.data);
+
+                // // userName 확인
+                // console.log('Post userName:', response.data.userName);
+                // console.log('Current userName:', userResponse.data.name);
+            } catch (error) {
                 console.error('Error fetching data:', error);
-                // navigate('/Login')
+                navigate('/Login');
             }
         };
 
-        fetchQuestData();
-    }, [navigate]);  // id 추가
+        fetchData();
+    }, [navigate, id]);
 
     if (!quest) {  // quest가 null인 경우 로딩 표시
         return <div>Loading...</div>;
@@ -59,9 +67,9 @@ const Question: React.FC = () => {
         <div className="leftNav">
           <Link to='/Board' className="Nav" id="board1">전체 문제</Link>
           <hr />
-          <Link to={`/examples/find/1`} className="Nav" id="board2">1학년 문제</Link><br />
-          <Link to={`/examples/find?grade=2&category=확률`} className="Nav">2학년 문제</Link><br />
-          <Link to={`/examples/find/3`} className="Nav">3학년 문제</Link>
+          <Link to={`/`} className="Nav" id="board2">1학년 문제</Link><br />
+          <Link to={`/`} className="Nav">2학년 문제</Link><br />
+          <Link to={`/`} className="Nav">3학년 문제</Link>
         </div>
         <div>
             <h1>전체 문제</h1>
