@@ -86,7 +86,7 @@ const Home: React.FC = () => {
                                       <td>{data.creatAt}</td>
                                     </Link>
                                     <td>
-                                      <button onClick={handleLike}>
+                                      <button onClick={handleLike} className="boardContent">
                                         👍 {likes} {/* 좋아요 버튼. 좋아요 수를 표시 */}
                                       </button>
                                     </td>
