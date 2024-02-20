@@ -24,7 +24,7 @@ function App() {
         <Route path='/Rank' element={<Rank />} />
         <Route path='/Question' element={<Question />} />
         <Route path='/Join' element={<Join />} />
-        <Route path='/BoardDetail' element={<BoardDetail />} />
+        <Route path='/posts/find/:id' element={<BoardDetail />} />
         <Route path='/BoardWrite' element={<BoardWrite />} />
         <Route path='/Grade' element={<Grade />} />
         <Route path='/QuestionWrite' element={<QuestionWrite />} />

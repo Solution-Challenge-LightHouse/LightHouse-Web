@@ -102,7 +102,7 @@ const BoardList: React.FC = () => {
                 {data.map((data: BoardInfo) => (
                   <tr key={data.id} className="boardContent">
                     <td>{data.id}</td>
-                    <td><Link to={`https://lighthouse1.site/posts/find/${data.id}`}>{data.title}</Link></td>
+                    <td><Link to={`/posts/find/${data.id}`}>{data.title}</Link></td>
                     <td>Lv.{data.userLevel}&nbsp;{data.userName}</td>
                     <td>{data.creatAt}</td>
                   </tr>
