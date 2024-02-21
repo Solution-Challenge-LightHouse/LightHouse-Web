@@ -50,7 +50,7 @@ const BoardDetail: React.FC = () => {
             };
             const response = await axios.delete(`https://lighthouse1.site/posts/delete/${id}`, config);
             console.log(response);
-            navigate('/list');
+            navigate('/BoardList');
         } catch (error) {
             console.error('Error deleting post:', error);
         }
