@@ -12,25 +12,10 @@ interface BoardInfo {
     creatAt: string;
 }
 
-// interface UserInfo {
-//     name: string;
-// }
-
-// interface CommentInfo {
-//     id: string;
-//     userName: string;
-//     userLevel: string;
-//     content: string;
-//     createAt: string;
-// }
-
 const BoardDetail: React.FC = () => {
     const [data, setData] = useState<BoardInfo | null>(null);
-    // const [commentShow, sestCommentShow] = useState<CommentInfo | null>(null);
-    // const [content, setContent] = useState('');
     const [liked, setLiked] = useState(false); // 좋아요가 눌려 있는 상태를 저장하는 state
     const [likes, setLikes] = useState(0); // 좋아요 수를 저장하는 state
-    // const [currentUser, setCurrentUser] = useState<UserInfo | null>(null); // 현재 사용자의 userName을 저장할 state 추가
     const { id } = useParams<{ id: string }>();
     const navigate = useNavigate();
 
@@ -46,17 +31,6 @@ const BoardDetail: React.FC = () => {
                 const response = await axios.get(`https://lighthouse1.site/posts/find/${id}`, config);
                 setData(response.data);
 
-                // 댓글 불러오기
-                // const commentResponse = await axios.get(`https://lighthouse1.site/comments/find/${id}`, config);
-                // sestCommentShow(commentResponse.data);
-
-                // // 현재 사용자의 userName을 얻어오는 API 요청 추가
-                // const userResponse = await axios.get('https://lighthouse1.site/users/my/info', config);
-                // setCurrentUser(userResponse.data);
-
-                // // userName 확인
-                // console.log('Post userName:', response.data.userName);
-                // console.log('Current userName:', userResponse.data.name);
             } catch (error) {
                 console.error('Error fetching data:', error);
                 navigate('/Login');
@@ -65,22 +39,6 @@ const BoardDetail: React.FC = () => {
 
         fetchData();
     }, [navigate, id]);
-
-    // const postCommentData = async () => {
-    //     const token = localStorage.getItem('token');
-    //     axios.post(`https://lighthouse1.site/comments/save/${id}`, { content }, {
-    //         headers: {
-    //             'Authorization': `Bearer ${token}`
-    //         }
-    //     })
-    //         .then(() => {
-    //             alert('저장되었습니다.');
-    //             navigate('/Board');
-    //         })
-    //         .catch(error => {
-    //             console.error('Something went wrong', error);
-    //         });
-    // };
 
     const deletePost = async () => {
         try {
@@ -102,6 +60,15 @@ const BoardDetail: React.FC = () => {
         setLiked(!liked); // 좋아요 상태를 반전
         setLikes(likes + (liked ? -1 : 1)); // 좋아요 상태에 따라 likes 값을 증가시키거나 감소시킴
     };
+
+    const formatDate = (dateString: string) => {
+        const date = new Date(dateString);
+        const year = date.getFullYear();
+        const month = ('0' + (date.getMonth() + 1)).slice(-2); // 월은 0부터 시작하기 때문에 +1 해줘야 합니다.
+        const day = ('0' + date.getDate()).slice(-2);
+      
+        return `${year}-${month}-${day}`; // yyyy-mm-dd 형식
+      };
 
     if (!data) {
         return <div>Loading...</div>;
@@ -125,7 +92,7 @@ const BoardDetail: React.FC = () => {
                         <td>{data.title}</td>
                         <td>{data.content}</td>
                         <td>Lv.{data.userLevel}&nbsp;{data.userName}</td>
-                        <td>{data.creatAt}</td>
+                        <td>{formatDate(data.creatAt)}</td>
                     </tr>
                 </tbody>
             </table>
@@ -136,21 +103,6 @@ const BoardDetail: React.FC = () => {
             <button onClick={handleLike}>
                 👍 {likes} {/* 좋아요 버튼. 좋아요 수를 표시 */}
             </button>
-
-            {/* <div className="comment">
-                <p className="commentWrite">
-                    <label>댓글: </label>
-                    <input className="commentA" type="text" value={content} onChange={e => setContent(e.target.value)} />
-                </p>
-
-                <button className="commentBtn" onClick={postCommentData}>저장</button>
-                <div>
-                    {commentShow?.id}<br />
-                    {commentShow?.content}<br />
-                    {commentShow?.userLevel}
-                    {commentShow?.userName}
-                </div>
-            </div> */}
         </>
     );
 };
