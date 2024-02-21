@@ -92,12 +92,8 @@ const Home: React.FC = () => {
                                             <td>{data.title}</td>
                                             <td>Lv.{data.userLevel}&nbsp;{data.userName}</td>
                                             <td>{formatDate(data.creatAt)}</td>
+                                            <td>👍 {likes}</td>
                                         </Link>
-                                        <td>
-                                            <button onClick={handleLike} className="boardContent">
-                                                👍 {likes} {/* 좋아요 버튼. 좋아요 수를 표시 */}
-                                            </button>
-                                        </td>
                                     </>
                                 ))}
                             </tbody>

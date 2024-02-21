@@ -122,11 +122,7 @@ const BoardList: React.FC = () => {
                       <td>{data.title}</td>
                       <td>Lv.{data.userLevel}&nbsp;{data.userName}</td>
                       <td>{formatDate(data.creatAt)}</td>
-                      <td>
-                        <button onClick={handleLike} id='likeBtn'>
-                          👍 {likes} {/* 좋아요 버튼. 좋아요 수를 표시 */}
-                        </button>
-                      </td>
+                      <td>👍 {likes}</td>
                     </Link>
                   </>
                 ))}
