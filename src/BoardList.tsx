@@ -114,17 +114,17 @@ const BoardList: React.FC = () => {
                   <th>Like</th>
                 </tr>
               </thead>
-              <tbody className='boardContent'>
+              <tbody>
                 {data.map((data: BoardInfo) => (
                   <>
                     <Link to={`/posts/find/${data.id}`}>
-                      <td>{data.id}</td>
-                      <td>{data.title}</td>
-                      <td>Lv.{data.userLevel}&nbsp;{data.userName}</td>
-                      <td>{formatDate(data.creatAt)}</td>
+                      <td className='boardContent'>{data.id}</td>
+                      <td className='boardContent'>{data.title}</td>
+                      <td className='boardContent'>Lv.{data.userLevel}&nbsp;{data.userName}</td>
+                      <td className='boardContent'>{formatDate(data.creatAt)}</td>
                     </Link>
                     <td>
-                      <button onClick={handleLike} id='likeBtn'>
+                      <button onClick={handleLike} className='boardContent' id='likeBtn'>
                         👍 {likes} {/* 좋아요 버튼. 좋아요 수를 표시 */}
                       </button>
                     </td>
