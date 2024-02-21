@@ -95,11 +95,9 @@ const BoardDetail: React.FC = () => {
                     </tr>
                 </tbody>
             </table>
-                <div>
-                    <button onClick={deletePost}>Delete</button>
-                </div>
 
-            <button onClick={handleLike}>
+            <button onClick={deletePost} className="detailBtn">Delete</button>
+            <button onClick={handleLike} className="detailBtn">
                 👍 {likes} {/* 좋아요 버튼. 좋아요 수를 표시 */}
             </button>
         </>

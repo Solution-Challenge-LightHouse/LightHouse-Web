@@ -49,6 +49,14 @@ const Home: React.FC = () => {
         setLikes(likes + (liked ? -1 : 1)); // 좋아요 상태에 따라 likes 값을 증가시키거나 감소시킴
     };
 
+    const formatDate = (dateString: string): string => {
+        const date = new Date(dateString);
+        const year = date.getFullYear();
+        const month = date.getMonth() + 1;
+        const day = date.getDate();
+        return `${year}-${month < 10 ? '0' + month : month}-${day < 10 ? '0' + day : day}`;
+    };
+
     if (!data) {
         return <div>Loading...</div>;
     }
@@ -79,18 +87,18 @@ const Home: React.FC = () => {
                             <tbody>
                                 {data.map((data: BoardInfo) => (
                                     <>
-                                    <Link to={`/posts/find/${data.id}`} className="boardContent">
-                                      <td>{data.id}</td>
-                                      <td>{data.title}</td>
-                                      <td>Lv.{data.userLevel}&nbsp;{data.userName}</td>
-                                      <td>{data.creatAt}</td>
-                                    </Link>
-                                    <td>
-                                      <button onClick={handleLike} className="boardContent">
-                                        👍 {likes} {/* 좋아요 버튼. 좋아요 수를 표시 */}
-                                      </button>
-                                    </td>
-                                  </>
+                                        <Link to={`/posts/find/${data.id}`} className="boardContent">
+                                            <td>{data.id}</td>
+                                            <td>{data.title}</td>
+                                            <td>Lv.{data.userLevel}&nbsp;{data.userName}</td>
+                                            <td>{formatDate(data.creatAt)}</td>
+                                        </Link>
+                                        <td>
+                                            <button onClick={handleLike} className="boardContent">
+                                                👍 {likes} {/* 좋아요 버튼. 좋아요 수를 표시 */}
+                                            </button>
+                                        </td>
+                                    </>
                                 ))}
                             </tbody>
                         </table>
