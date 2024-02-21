@@ -61,14 +61,13 @@ const BoardDetail: React.FC = () => {
         setLikes(likes + (liked ? -1 : 1)); // 좋아요 상태에 따라 likes 값을 증가시키거나 감소시킴
     };
 
-    const formatDate = (dateString: string) => {
+    const formatDate = (dateString: string): string => {
         const date = new Date(dateString);
         const year = date.getFullYear();
-        const month = ('0' + (date.getMonth() + 1)).slice(-2); // 월은 0부터 시작하기 때문에 +1 해줘야 합니다.
-        const day = ('0' + date.getDate()).slice(-2);
-      
-        return `${year}-${month}-${day}`; // yyyy-mm-dd 형식
-      };
+        const month = date.getMonth() + 1;
+        const day = date.getDate();
+        return `${year}-${month < 10 ? '0' + month : month}-${day < 10 ? '0' + day : day}`;
+    };
 
     if (!data) {
         return <div>Loading...</div>;
