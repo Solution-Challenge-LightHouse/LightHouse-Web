@@ -82,21 +82,21 @@ const BoardDetail: React.FC = () => {
     //         });
     // };
 
-    // const deletePost = async () => {
-    //     try {
-    //         const token = localStorage.getItem('token');
-    //         const config = {
-    //             headers: {
-    //                 Authorization: `Bearer ${token}`,
-    //             },
-    //         };
-    //         const response = await axios.delete(`https://lighthouse1.site/posts/delete/${id}`, config);
-    //         console.log(response);
-    //         navigate('/list');
-    //     } catch (error) {
-    //         console.error('Error deleting post:', error);
-    //     }
-    // }
+    const deletePost = async () => {
+        try {
+            const token = localStorage.getItem('token');
+            const config = {
+                headers: {
+                    Authorization: `Bearer ${token}`,
+                },
+            };
+            const response = await axios.delete(`https://lighthouse1.site/posts/delete/${id}`, config);
+            console.log(response);
+            navigate('/list');
+        } catch (error) {
+            console.error('Error deleting post:', error);
+        }
+    }
 
     const handleLike = () => {
         setLiked(!liked); // 좋아요 상태를 반전
@@ -129,12 +129,9 @@ const BoardDetail: React.FC = () => {
                     </tr>
                 </tbody>
             </table>
-            {/* 게시글 작성자와 현재 사용자가 같다면 삭제 버튼을 보여줌 */}
-            {/* {data.userName === currentUser?.name && (
                 <div>
                     <button onClick={deletePost}>Delete</button>
                 </div>
-            )} */}
 
             <button onClick={handleLike}>
                 👍 {likes} {/* 좋아요 버튼. 좋아요 수를 표시 */}
