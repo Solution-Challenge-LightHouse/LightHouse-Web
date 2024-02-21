@@ -124,7 +124,7 @@ const BoardList: React.FC = () => {
                       <td>{formatDate(data.creatAt)}</td>
                     </Link>
                     <td>
-                      <button onClick={handleLike} className='boardContent'>
+                      <button onClick={handleLike}>
                         👍 {likes} {/* 좋아요 버튼. 좋아요 수를 표시 */}
                       </button>
                     </td>
