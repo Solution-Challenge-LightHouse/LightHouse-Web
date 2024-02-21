@@ -57,7 +57,7 @@ const User = () => {
             <div className='userPage'>
                 <div className='userRank'>
                     <div className='userImg'>
-                        <img src={data.pictureUrl} alt='유저 아이콘' className='userIcon' />
+                        <img src={userIcon} alt='유저 아이콘' className='userIcon' />
                     </div>
                     <div>
                         <div className='userLevel'>
@@ -78,7 +78,6 @@ const User = () => {
                     <p className='userData'>가입일: {data.createAt}</p>
                 </div>
             </div>
-            <div> User page </div>
         </>
     )
 }
