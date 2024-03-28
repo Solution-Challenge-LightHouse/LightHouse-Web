@@ -11,3 +11,4 @@ I used TypeScript and included a bulletin board feature where students can freel
 1. Open the file using vscode.
 2. Enter "yarn" in the terminal and confirm that the node_modules directory is created.
 3. Start the project with "yarn dev".
+"# Lighthouse_web" 
