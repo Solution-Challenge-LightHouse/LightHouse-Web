@@ -13,3 +13,4 @@ I used TypeScript and included a bulletin board feature where students can freel
 3. Start the project with "yarn dev".
 "# Lighthouse_web" 
 "# Lighthouse_web" 
+"# Lighthouse_web" 
